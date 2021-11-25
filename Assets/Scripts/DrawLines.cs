@@ -1,9 +1,11 @@
+using System;
 using UnityEngine;
 
 public class DrawLines : MonoBehaviour
 {
     [SerializeField] private Material material;
     [SerializeField] private Vector2 lineSize;
+    [SerializeField] private float radius;
     [SerializeField] private int vertexCount;
     private LineRenderer lineRenderer;
 
@@ -14,10 +16,14 @@ public class DrawLines : MonoBehaviour
         lineRenderer.startWidth = lineSize.x;
         lineRenderer.endWidth = lineSize.y;
         lineRenderer.loop = true;
-        DrawPolygon(vertexCount, 1, Vector3.zero);
     }
-    
-    void DrawPolygon(int vertexCount, float radius, Vector3 position)
+
+    private void Update()
+    {
+        DrawPolygon(transform.position);
+    }
+
+    void DrawPolygon(Vector3 position)
     {
         lineRenderer.positionCount = vertexCount;
         float angle = 2 * Mathf.PI / vertexCount;
