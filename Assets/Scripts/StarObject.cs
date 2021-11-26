@@ -13,6 +13,8 @@ public class StarObject : MonoBehaviour
         rotation = GetComponent<Rotation>();
         
         rotation.RotateRandom();
+        
+        
     }
     
     void Update()
