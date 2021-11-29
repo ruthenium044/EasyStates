@@ -8,3 +8,4 @@
 - [ ] Method chaining?
 - [ ] State to change between the components of the objects
 - [ ] Observer to display current states or just number of objects or similar
+- [ ] Cycle of colors. Like day night cycle
