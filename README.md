@@ -5,5 +5,6 @@
 - [x] Components in StarObject.cs file, the StarObject class is using components to get the movement, rotation, drawing
 - [ ] Factory?
 - [ ] Clone
+- [ ] Method chaining?
 - [ ] State to change between the components of the objects
 - [ ] Observer to display current states or just number of objects or similar
