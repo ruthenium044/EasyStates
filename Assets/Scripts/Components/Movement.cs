@@ -1,15 +1,26 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class Movement : MonoBehaviour
 {
-    public void MoveObject()
+    private Vector3 startPos;
+    private Vector3 endPos;
+
+    private void Start()
     {
-        var newPosition = transform.localPosition;
-        newPosition = new Vector3(newPosition.x, newPosition.y + Time.deltaTime, newPosition.z);
-        transform.localPosition += transform.InverseTransformPoint(Vector3.up) * Time.deltaTime;//  newPosition;
-        
+        startPos = transform.position;
+        endPos = transform.position + Vector3.down;
+    }
+
+    public void MoveObject(float dt)
+    {
+        float t = Mathf.PingPong(Time.time, 1);
+        t *= t;
+        var newPosition = Vector3.Lerp(startPos, endPos, t);
+        transform.localPosition = newPosition;
     }
 }
     
