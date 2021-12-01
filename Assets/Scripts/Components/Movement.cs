@@ -9,18 +9,19 @@ public class Movement : MonoBehaviour
     private Vector3 startPos;
     private Vector3 endPos;
 
-    private void Start()
+    public void SetStartPos(Vector3 start, Vector3 end)
     {
-        startPos = transform.position;
-        endPos = transform.position + Vector3.down;
+        startPos = start;
+        endPos = end;
     }
 
-    public void MoveObject(float dt)
+    public void MoveObject(float time)
     {
-        float t = Mathf.PingPong(Time.time, 1);
+        float t = Mathf.PingPong(time, 1);
         t *= t;
         var newPosition = Vector3.Lerp(startPos, endPos, t);
         transform.localPosition = newPosition;
     }
+    
 }
     

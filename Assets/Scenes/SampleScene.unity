@@ -216,13 +216,15 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1198167336}
+  - component: {fileID: 1198167341}
   - component: {fileID: 1198167338}
   - component: {fileID: 1198167337}
   - component: {fileID: 1198167340}
-  - component: {fileID: 1198167339}
-  - component: {fileID: 1198167341}
+  - component: {fileID: 1198167346}
   - component: {fileID: 1198167343}
   - component: {fileID: 1198167342}
+  - component: {fileID: 1198167344}
+  - component: {fileID: 1198167345}
   m_Layer: 0
   m_Name: Sphere
   m_TagString: Untagged
@@ -259,6 +261,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   vertexCount: 100
   scaler: 2
+  materials: []
 --- !u!114 &1198167338
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -272,18 +275,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dt: 0
---- !u!114 &1198167339
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1198167334}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3bebda52cc8e42f44b667e4978b52271, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &1198167340
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -308,7 +299,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 21795cd9723ed35418d14d163eabe3bb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  initialPool: 1000
+  initialPool: 10000
   objectPrefab: {fileID: 8874448194131499985, guid: 30158282722d62d4c95c20d41d2718bc, type: 3}
 --- !u!114 &1198167342
 MonoBehaviour:
@@ -334,34 +325,43 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d54d9bb03faa9f94d852a47f31fc6a64, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!1 &1338259553
-GameObject:
+  startPos: {x: 0, y: 0, z: 0}
+  endPos: {x: 0, y: -1, z: 0}
+--- !u!114 &1198167344
+MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1338259555}
-  m_Layer: 0
-  m_Name: Pool
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1338259555
-Transform:
+  m_GameObject: {fileID: 1198167334}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e6b444c2ed5844141ac95d56c230be86, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1198167345
+MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1338259553}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 2
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_GameObject: {fileID: 1198167334}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a6512280831338846aab3c4413d607d3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mainColor: {r: 0.48235294, g: 0, b: 0.67058825, a: 1}
+  newColor: {r: 0.27450982, g: 0.50980395, b: 0.19607845, a: 1}
+--- !u!114 &1198167346
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1198167334}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ea5cb1a96c80f334d9a183d5538fa66c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

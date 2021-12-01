@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class RotationState : MonoBehaviour, State
+public class RotationBackState : MonoBehaviour, State
 {
     private JellyObject jellyObject;
 
@@ -14,7 +14,7 @@ public class RotationState : MonoBehaviour, State
 
     public void EnterState()
     {
-        jellyObject.dt = Time.deltaTime;
+        jellyObject.dt = -Time.deltaTime;
     }
 
     public void UpdateState()
