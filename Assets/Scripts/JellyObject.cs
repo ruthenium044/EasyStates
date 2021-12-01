@@ -53,7 +53,7 @@ public class JellyObject : MonoBehaviour
             SetState(2);
         }
         
-        if (GUI.Button(new Rect(500, 70, 150, 50), "State 4"))
+        if (GUI.Button(new Rect(490, 70, 150, 50), "State 4"))
         {
             SetState(3);
         }

@@ -2,9 +2,9 @@ Shader "Custom/GraphSurface"
 {
     Properties
     {
-        NormalColor ("NormalColor", Color) = (1,1,1,1)
         EmissionColor ("EmissionColor", Color) = (1,1,1,1)
         Glossiness ("Smoothness", Range(0,1)) = 0.5
+        FresnelExponent ("FresnelExponent", Range(0.25, 4)) = 1
     }
     SubShader
     {
@@ -15,14 +15,15 @@ Shader "Custom/GraphSurface"
         #pragma surface surf Standard fullforwardshadows
         #pragma target 3.0
 
-
         struct Input
         {
             float3 worldPos;
+            float3 worldNormal;
+            float3 viewDir;
         };
 
         half Glossiness;
-        fixed4 NormalColor;
+        float FresnelExponent;
         fixed4 EmissionColor;
         
         UNITY_INSTANCING_BUFFER_START(Props)
@@ -30,10 +31,13 @@ Shader "Custom/GraphSurface"
 
         void surf (Input IN, inout SurfaceOutputStandard o)
         {
-            o.Albedo = saturate(IN.worldPos * 0.5 + 0.5);
-            o.Emission = EmissionColor;
-            o.Normal = NormalColor;
+            o.Albedo = saturate(IN.worldPos);
             o.Smoothness = Glossiness;
+            
+            float fresnel = dot(IN.worldNormal, IN.viewDir);
+            fresnel = saturate(1 - fresnel);
+            fresnel = pow(fresnel, FresnelExponent);
+            o.Emission = EmissionColor + fresnel;
         }
         ENDCG
     }

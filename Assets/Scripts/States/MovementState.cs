@@ -5,7 +5,6 @@ using UnityEngine;
 
 public class MovementState : MonoBehaviour, State
 {
-    private JellyObject jellyObject;
     private Movement movement;
 
     [SerializeField] private Vector3 startPos;
@@ -15,13 +14,11 @@ public class MovementState : MonoBehaviour, State
     
     private void Awake()
     {
-        jellyObject = GetComponent<JellyObject>();
         movement = GetComponent<Movement>();
     }
 
     public void EnterState()
     {
-        jellyObject.dt = 0;
         movement.SetStartPos(startPos, endPos);
     }
 
