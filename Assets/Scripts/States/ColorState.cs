@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ColorState : MonoBehaviour, State
+public class ColorState : MonoBehaviour, IState
 {
     private DrawShape drawShape;
     private ChangeColor changeColor;    

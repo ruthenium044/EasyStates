@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class RotationBackState : MonoBehaviour, State
+public class RotationBackState : MonoBehaviour, IState
 {
     private JellyObject jellyObject;
 

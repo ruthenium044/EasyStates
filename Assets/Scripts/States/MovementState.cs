@@ -3,12 +3,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MovementState : MonoBehaviour, State
+public class MovementState : MonoBehaviour, IState
 {
     private Movement movement;
 
     [SerializeField] private Vector3 startPos;
     [SerializeField] private Vector3 endPos;
+    
+    private Vector3 localStartPos;
 
     private float runningTime;
     
