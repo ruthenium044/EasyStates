@@ -11,7 +11,6 @@ public class MovementState : MonoBehaviour, IState
     [SerializeField] private Vector3 endPos;
     
     private Vector3 localStartPos;
-
     private float runningTime;
     
     private void Awake()
