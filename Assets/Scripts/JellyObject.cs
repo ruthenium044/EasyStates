@@ -1,6 +1,3 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class JellyObject : MonoBehaviour
@@ -8,8 +5,8 @@ public class JellyObject : MonoBehaviour
     private StatesManager statesManager;
     private DrawShape drawShape;
 
-    private ICommand[] stateCommands = new ICommand[4];
-    private ICommand[] poolCommands = new ICommand[4];
+    private readonly ICommand[] stateCommands = new ICommand[4];
+    private readonly ICommand[] poolCommands = new ICommand[4];
     
     private float t;
     [HideInInspector] public float dt;

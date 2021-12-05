@@ -2,11 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public struct Properties
-{
-    //kill me
-}
-
 public class StatesManager : MonoBehaviour, IState
 {
     private readonly List<IState> states = new();
@@ -21,12 +16,6 @@ public class StatesManager : MonoBehaviour, IState
     private IState GetState(int index)
     {
         return states[index];
-    }
-
-    public void SetColor(int index, Color color)
-    {
-        //fucking kill me right here
-        //states[index].newColor = color;
     }
 
     public void EnterState()
