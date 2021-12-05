@@ -3,9 +3,10 @@ using UnityEngine;
 
 public class SingletonPool : MonoBehaviour
 {
-    private List<GameObject> pool;
     [SerializeField] private int initialPool;
     [SerializeField] private GameObject objectPrefab;
+    
+    private Stack<GameObject> pool;
     
     public static SingletonPool Instance { get; private set; }
 
@@ -17,19 +18,25 @@ public class SingletonPool : MonoBehaviour
 
     public GameObject GetObjectFromPool()
     {
-        foreach (var obj in pool)
+        if (pool.TryPop(out GameObject obj))
         {
-            if (!obj.activeInHierarchy)
-            {
-                return obj;
-            }
+            obj.SetActive(true);
+            return obj;
         }
-        return PoolObject();
+        GameObject temp = PoolObject();
+        temp.SetActive(true);
+        return temp;
+    }
+
+    public void BackToPool(GameObject obj)
+    {
+        obj.SetActive(false);
+        pool.Push(obj);
     }
     
     private void PoolObjects()
     {
-        pool = new List<GameObject>();
+        pool = new Stack<GameObject>();
         for (int i = 0; i < initialPool; i++)
         {
             PoolObject();
@@ -40,7 +47,6 @@ public class SingletonPool : MonoBehaviour
     {
         GameObject temp = Instantiate(objectPrefab, transform);
         temp.SetActive(false);
-        pool.Add(temp);
         return temp;
     }
 
@@ -55,51 +61,5 @@ public class SingletonPool : MonoBehaviour
             Instance = this;
         }
     }
-    
-    private void ActivateObject()
-    {
-        GameObject temp = GetObjectFromPool();
-        temp.SetActive(true);
-    }
 
-    private void DeactivateObject()
-    {
-        for (int i = 0; i < pool.Count; i++)
-        {
-            if (pool[i].activeInHierarchy)
-            {
-                pool[i].SetActive(false);
-                return;
-            }
-        }
-    }
-
-    private void OnGUI()
-    {
-        if (GUI.Button(new Rect(10, 10, 150, 50), "Activate 1 object"))
-        {
-            ActivateObject();
-        }
-        
-        if (GUI.Button(new Rect(170, 10, 150, 50), "Activate 100 objects"))
-        {
-            for (int i = 0; i < 100; i++)
-            {
-                ActivateObject();
-            }
-        }
-    
-        if (GUI.Button(new Rect(330, 10, 150, 50), "Deactivate 1 object"))
-        {
-            DeactivateObject();
-        }
-        
-        if (GUI.Button(new Rect(490, 10, 150, 50), "Deactivate 100 objects"))
-        {
-            for (int i = 0; i < 100; i++)
-            {
-                DeactivateObject();
-            }
-        }
-    }
 }

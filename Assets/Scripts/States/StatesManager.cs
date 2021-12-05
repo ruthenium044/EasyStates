@@ -9,7 +9,7 @@ public struct Properties
 
 public class StatesManager : MonoBehaviour, IState
 {
-    private readonly List<IState> states = new List<IState>();
+    private readonly List<IState> states = new();
     private IState currentState;
     
     public StatesManager AddState(IState state)
@@ -17,8 +17,8 @@ public class StatesManager : MonoBehaviour, IState
         states.Add(state);
         return this;
     }
-    
-    public IState GetState(int index)
+
+    private IState GetState(int index)
     {
         return states[index];
     }
@@ -50,7 +50,7 @@ public class StatesManager : MonoBehaviour, IState
         currentState.EnterState();
     }
     
-    private void SetState(int index)
+    public void SetState(int index)
     {
         if (currentState != GetState(index))
         {
@@ -59,27 +59,5 @@ public class StatesManager : MonoBehaviour, IState
             currentState.EnterState();
         }
     }
-    
-    private void OnGUI()
-    {
-        if (GUI.Button(new Rect(10, 70, 150, 50), "State 1"))
-        {
-            SetState(0);
-        }
 
-        if (GUI.Button(new Rect(170, 70, 150, 50), "State 2"))
-        {
-            SetState(1);
-        }
-        
-        if (GUI.Button(new Rect(330, 70, 150, 50), "State 3"))
-        {
-            SetState(2);
-        }
-        
-        if (GUI.Button(new Rect(490, 70, 150, 50), "State 4"))
-        {
-            SetState(3);
-        }
-    }
 }

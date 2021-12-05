@@ -10,6 +10,7 @@ public class DrawShape : MonoBehaviour
     [SerializeField] private int vertexCount;
     [SerializeField] private float scaler;
     private GameObject[] points;
+    private Stack<GameObject> used = new Stack<GameObject>();
     [HideInInspector] public Material[] materials;
     private float step;
     
@@ -24,13 +25,29 @@ public class DrawShape : MonoBehaviour
         {
             GameObject temp = SingletonPool.Instance.GetObjectFromPool();
             points[i] = temp;
+            used.Push(temp);
             materials[i] = points[i].GetComponent<MeshRenderer>().material;
-            
-            points[i].SetActive(true);
             points[i].transform.localScale = scale;
         }
     }
 
+    public void Deactivate(int num)
+    {
+        num = Min(num, used.Count);
+        for (int i = 0; i < num; i++)
+        {
+            SingletonPool.Instance.BackToPool(used.Pop());
+        }
+    }
+
+    public void Activate(int num)
+    {
+        for (int i = 0; i < num; i++)
+        {
+            used.Push(SingletonPool.Instance.GetObjectFromPool());
+        }
+    }
+    
     public void UpdateSphere(float time)
     {
         float v = 0.5f * step - 1f;
