@@ -57,7 +57,7 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - FresnelExponent: 0.81
+    - FresnelExponent: 1.52
     - Glossiness: 1
     - _BumpScale: 1
     - _Cutoff: 0.5

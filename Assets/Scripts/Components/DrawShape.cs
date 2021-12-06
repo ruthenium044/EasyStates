@@ -1,5 +1,3 @@
-using System;
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -9,10 +7,11 @@ public class DrawShape : MonoBehaviour
 {
     [SerializeField] private int vertexCount;
     [SerializeField] private float scaler;
-    private GameObject[] points;
-    private Stack<GameObject> used = new Stack<GameObject>();
-    [HideInInspector] public Material[] materials;
     private float step;
+    
+    private GameObject[] points;
+    private readonly Stack<GameObject> used = new();
+    [HideInInspector] public Material[] materials;
     
     public void InitializeObjects()
     {

@@ -2,7 +2,7 @@
 public class SetStateCommand : ICommand
 {
     private readonly StatesManager stateManager;
-    private int index;
+    private readonly int index;
 
     public SetStateCommand(StatesManager stateManagerObject, int i)
     {
