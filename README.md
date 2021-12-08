@@ -10,3 +10,5 @@ A simple simulation of a shape made from a bunch of separate objects. Functional
 - [x] Command pattern to call functions on GUI buttons. The interface and all command classes are in Commands folder. Commands are being managed in JellyObject.cs and called with GUI buttons
 - [x] Method chaining to add the states to the list in JellyObject.cs
 - [x] All command classes that inherit from ICommand.cs use dependency injection to get components
+
+![image](https://user-images.githubusercontent.com/31730144/145170742-2995fd7c-58f0-4721-9e87-0dfece28e541.png)
