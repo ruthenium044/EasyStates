@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class ChangeColor : MonoBehaviour
+public class ChangeColor: MonoBehaviour
 {
     private static readonly int EmissionColor = Shader.PropertyToID("EmissionColor");
 

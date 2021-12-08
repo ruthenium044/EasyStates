@@ -1,6 +1,5 @@
 using System.Collections.Generic;
 using UnityEngine;
-
 using static UnityEngine.Mathf;
 
 public class DrawShape : MonoBehaviour

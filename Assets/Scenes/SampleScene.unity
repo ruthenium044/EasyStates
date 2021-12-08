@@ -338,8 +338,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a6512280831338846aab3c4413d607d3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mainColor: {r: 0.48235294, g: 0, b: 0.67058825, a: 1}
-  newColor: {r: 0.48301885, g: 0.9056604, b: 0, a: 1}
+  drawShape: {fileID: 0}
+  changeColor: {fileID: 0}
+  mainColor:
+    r: 0.48235294
+    g: 0
+    b: 0.67058825
+    a: 1
+  newColor:
+    r: 0.48301885
+    g: 0.9056604
+    b: 0
+    a: 1
 --- !u!114 &1198167346
 MonoBehaviour:
   m_ObjectHideFlags: 0
